@@ -14,12 +14,10 @@ public extension Node where Context == HTML.BodyContext {
         case vertical
     }
     
-    static func ZF6_menu(option: ZF6_MenuOption? = nil, _ nodes: Node<HTML.ListContext>...) -> Node {
-        .ul(
-            .class("menu"),
-            .unwrap(option) {
-                .class("menu \($0.rawValue)")
-            },
+    static func ZF6_menu(option: ZF6_MenuOption? = nil, class additionalClasses: String? = nil, _ nodes: Node<HTML.ListContext>...) -> Node {
+        let classString = ["menu", additionalClasses, option?.rawValue].compactMap { $0 }.joined(separator: " ")
+        return .ul(
+            .class(classString),
             .if(option == .dropdown, .attribute(named: "data-dropdown-menu")),
             .group(nodes)
         )
