@@ -24,11 +24,11 @@ public enum CellOption: Hashable, CustomStringConvertible {
     case size(_ sizeClass: GridSizeClass, _ columns: Int)
     
     /// Defines the number of columns for the small size class
-    static func small(_ columns: Int) -> Self { self.size(.small, columns)}
+    public static func small(_ columns: Int) -> Self { self.size(.small, columns)}
     /// Defines the number of columns for the medium size class
-    static func medium(_ columns: Int) -> Self { self.size(.medium, columns)}
+    public static func medium(_ columns: Int) -> Self { self.size(.medium, columns)}
     /// Defines the number of columns for the large size class
-    static func large(_ columns: Int) -> Self { self.size(.large, columns)}
+    public static func large(_ columns: Int) -> Self { self.size(.large, columns)}
 
     public var description: String {
         switch self {
