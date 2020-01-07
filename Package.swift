@@ -12,14 +12,14 @@ let package = Package(
             targets: ["PlotZurbFoundation6"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/johnsundell/plot", from: "0.4.0"),
+        .package(url: "https://github.com/johnsundell/plot.git", from: "0.4.0"),
     ],
     targets: [
         .target(
             name: "PlotZurbFoundation6",
             dependencies: ["Plot"]),
-//        .testTarget(
-//            name: "PlotZurbFoundation6Tests",
-//            dependencies: ["PlotZurbFoundation6"]),
+        .testTarget(
+            name: "PlotZurbFoundation6Tests",
+            dependencies: ["PlotZurbFoundation6"]),
     ]
 )
