@@ -9,6 +9,12 @@ import Foundation
 import Plot
 
 public struct OrbitSlide {
+    public init(image: String, caption: String? = nil, screenReader: String? = nil) {
+        self.image = image
+        self.caption = caption
+        self.screenReader = screenReader
+    }
+    
     public var image: String
     public var caption: String? = nil
     public var screenReader: String? = nil
