@@ -18,8 +18,8 @@ let package = Package(
         .target(
             name: "PlotZurbFoundation6",
             dependencies: ["Plot"]),
-        .testTarget(
-            name: "PlotZurbFoundation6Tests",
-            dependencies: ["PlotZurbFoundation6"]),
+//        .testTarget(
+//            name: "PlotZurbFoundation6Tests",
+//            dependencies: ["PlotZurbFoundation6"]),
     ]
 )
