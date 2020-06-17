@@ -13,11 +13,12 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/johnsundell/plot.git", from: "0.4.0"),
+        .package(url: "https://github.com/dmonagle/PublishPicturePlugin.git", from: "1.0.0"),
     ],
     targets: [
         .target(
             name: "PlotZurbFoundation6",
-            dependencies: ["Plot"]),
+            dependencies: ["Plot", "PublishPicturePlugin"]),
         .testTarget(
             name: "PlotZurbFoundation6Tests",
             dependencies: ["PlotZurbFoundation6"]),

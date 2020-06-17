@@ -7,9 +7,10 @@
 
 import Foundation
 import Plot
+import PublishPicturePlugin
 
 public struct OrbitSlide {
-    public init(image: String, caption: String? = nil, screenReader: String? = nil) {
+    public init(image: String, caption: String? = nil, darkIncluded: Bool = false, screenReader: String? = nil) {
         self.image = image
         self.caption = caption
         self.screenReader = screenReader
@@ -17,6 +18,7 @@ public struct OrbitSlide {
     
     public var image: String
     public var caption: String? = nil
+    public var darkIncluded: Bool = false
     public var screenReader: String? = nil
 }
 
@@ -50,7 +52,7 @@ public extension Node where Context == HTML.BodyContext {
                 .li(
                     .class("orbit-slide\(index == selectedSlide ? " is-active" : "")"),
                     .figure(
-                        .retinaPicture(path: slide.image, scales: [1, 2],
+                        .retinaPicture(path: slide.image, includeDark: slide.darkIncluded,
                             .class("orbit-image")
                         ),
                         .unwrap(slide.caption) {

@@ -20,7 +20,7 @@ This is a library for John Sundells [Plot](https://github.com/johnsundell/plot) 
                 .a(
                     .class("hide-for-small-only"),
                     .href("/"),
-                    .retinaPicture(path: "/images/top-bar-logo.png", scales: [1, 2])
+                    .retinaPicture(path: "/images/top-bar-logo.png")
                 )
             )
         )

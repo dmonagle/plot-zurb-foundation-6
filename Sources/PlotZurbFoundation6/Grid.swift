@@ -20,9 +20,22 @@ public enum GridSizeClass: String, CustomStringConvertible {
     public var description: String { self.rawValue }
 }
 
-public enum CellOption: Hashable, CustomStringConvertible {
-    case size(_ sizeClass: GridSizeClass, _ columns: Int)
+public struct CellOption: Hashable, CustomStringConvertible {
+    public let `class`: String
     
+    public init(_ class: String) {
+        self.class = `class`
+    }
+    
+    /// Defines a size attribute
+    public static func size(_ sizeClass: GridSizeClass, _ columns: Int) -> Self {
+        .init("\(sizeClass)-\(columns)")
+    }
+
+    public static func `class`(_ class: String) -> Self {
+        .init(`class`)
+    }
+
     /// Defines the number of columns for the small size class
     public static func small(_ columns: Int) -> Self { self.size(.small, columns)}
     /// Defines the number of columns for the medium size class
@@ -31,10 +44,7 @@ public enum CellOption: Hashable, CustomStringConvertible {
     public static func large(_ columns: Int) -> Self { self.size(.large, columns)}
 
     public var description: String {
-        switch self {
-        case .size(let sizeClass, let columns):
-            return "\(sizeClass)-\(columns)"
-        }
+        self.class
     }
 }
 
