@@ -51,6 +51,7 @@ public struct CellOption: Hashable, CustomStringConvertible {
 public struct GridOptions: OptionSet {
     public static let margin = GridOptions(rawValue: 1)
     public static let padding = GridOptions(rawValue: 1 << 1)
+    public static let alignCenter = GridOptions(rawValue: 1 << 2)
 
     public let rawValue: Int
     
@@ -67,6 +68,10 @@ public struct GridOptions: OptionSet {
 
         if self.contains(.padding) {
             result.append("grid-padding-\(gridType)")
+        }
+
+        if self.contains(.alignCenter) {
+            result.append("align-center")
         }
 
         return result
